@@ -16,5 +16,13 @@ pipeline {
       }
     }
 
+    stage('docker build and push') {
+      steps {
+        sh 'docker build -t asyl13/ci-cd-epam-training:1'
+        sh 'sudo docker login -u $DOCKER_LOGIN -p $DOCKER_PASS'
+        sh 'sudo docker push asyl13/ci-cd-epam-training:1'
+      }
+    }
+
   }
 }
