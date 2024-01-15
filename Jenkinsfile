@@ -9,5 +9,12 @@ pipeline {
       }
     }
 
+    stage('test.sh') {
+      steps {
+        sh 'chmod +x scripts/test.sh'
+        sh 'scripts/test.sh'
+      }
+    }
+
   }
 }
